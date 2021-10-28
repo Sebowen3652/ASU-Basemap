@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Mapbox: Custom Base Map</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css"/>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel='stylesheet'/>
+
+    <style>
+        html { height:100%;} body { height:100%; padding: 0; margin: 0;}
+        #map {width: 100%; height: 100%;}
+    </style>
+
+      <!-- Javascript Libraries -->
+      <script src="http://cdn.leafletjs.com/leaflet/v1.7.0/leaflet.js"></script>
+      <!-- mapbox gl js -->
+      <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+      <!-- leaflet mapbox js -->
+      <script src="http://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+
+  </head>
+
+
+  <body>
+
+
+    <div id='map'></div>
+
+
+      <script>
+
+
+          // 1. create the map object.
+            var map = L.map('map').setView([36.213852, -81.672401], 14);//latlong coordinates centered over downtown Boone
+
+L.tileLayer('https://api.mapbox.com/styles/v1/sebowen3652/ckvaycpif1wp715o60h4qim3d/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic2Vib3dlbjM2NTIiLCJhIjoiY2t2YXk4NTZsMDkxaDJucWlmNmk0NDFhaCJ9.UUPYWAudKL9W-sMvWkRw3g').addTo(map); 
+          //2. add base map.
+          mapbox_token = 'pk.eyJ1Ijoic2Vib3dlbjM2NTIiLCJhIjoiY2t2YXk4NTZsMDkxaDJucWlmNmk0NDFhaCJ9.UUPYWAudKL9W-sMvWkRw3g';
+          var gl = L.mapboxGL({
+              accessToken: mapbox_token,
+              style: 'assets/style.json',
+              attribution: 'Created by [Charles Sebastian Bowen]'
+          }).addTo(map);
+
+
+      </script>
+  </body>
+</html>
